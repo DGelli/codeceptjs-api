@@ -1,0 +1,75 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "type": "array",
+  "items": [
+    {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "Contato": {
+          "type": "array",
+          "items": [
+            {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "string"
+                },
+                "TesteId": {
+                  "type": "string"
+                },
+                "fone": {
+                  "type": "string"
+                },
+                "fone2": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "id",
+                "TesteId",
+                "fone",
+                "fone2"
+              ]
+            }
+          ]
+        },
+        "Extra": {
+          "type": "array",
+          "items": [
+            {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "string"
+                },
+                "contatoId": {
+                  "type": "string"
+                },
+                "Pet": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "id",
+                "contatoId",
+                "Pet"
+              ]
+            }
+          ]
+        }
+      },
+      "required": [
+        "id",
+        "name",
+        "Contato",
+        "Extra"
+      ]
+    }
+  ]
+}

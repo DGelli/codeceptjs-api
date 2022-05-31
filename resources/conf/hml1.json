@@ -1,0 +1,4 @@
+{
+    "urlBase": "https://5df531907305820014bcc7a7.mockapi.io/BackEnd",
+    "stringConDB": "jdbc:postgresql://pme.c3pz81t6jnu5.sa-east-1.rds.amazonaws.com:5432/pme?user=read_only_pme&password=xxxxxxxx"
+}

@@ -1,0 +1,11 @@
+{
+  "user": {
+    "id": "2",
+    "name": "Usuario teste",
+    "agencia": "0288",
+    "conta": 89,
+    "passEletronica": "canais",
+    "passTransacional": 6789,
+    "token": 123456
+  }
+}

@@ -1,0 +1,24 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "type": "object",
+  "properties": {
+    "fone": {
+      "type": "string"
+    },
+    "fone2": {
+      "type": "string"
+    },
+    "id": {
+      "type": "string"
+    },
+    "TesteId": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "fone",
+    "fone2",
+    "id",
+    "TesteId"
+  ]
+}
