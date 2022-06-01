@@ -6,8 +6,9 @@ const utf8 = { encoding: 'utf-8' };
 class hooks extends Helper {
 
   _init() {
-    // console.log('User tester: ' + process.env.USERNAME),
-
+    console.log('User tester: ' + process.env.USERNAME),
+    console.log('ENV: ' + process.env.env),
+    console.log('Token: ' + process.env.TOKEN)
     try {
       execSync('rm output/* -f', utf8);
     } catch (e) {

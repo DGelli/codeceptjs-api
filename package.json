@@ -9,8 +9,8 @@
         "codeceptjs:demo": "codeceptjs run --steps -c node_modules/@codeceptjs/examples",
         "codeceptjs:demo:headless": "HEADLESS=true codeceptjs run --steps -c node_modules/@codeceptjs/examples",
         "codeceptjs:demo:ui": "codecept-ui --app  -c node_modules/@codeceptjs/examples",
-        "api": "ENV='hml2' TOKEN='xyz123' npx codeceptjs run --reporter mocha-multi",
-        "tag": "ENV='hml2' TOKEN='xyz123' npx codeceptjs run --reporter mocha-multi --grep"
+        "api": "ENV ENV='hml1' TOKEN='xyz123' npx codeceptjs run --reporter mocha-multi",
+        "tag": "ENV ENV='hml1' TOKEN='xyz123' npx codeceptjs run --reporter mocha-multi --grep"
     },
     "devDependencies": {
         "@codeceptjs/configure": "^0.8.0",
