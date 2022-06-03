@@ -9,7 +9,7 @@ setHeadlessWhen(process.env.HEADLESS);
 setCommonPlugins();
 
 exports.config = {
-  tests: './test/*.js',
+  tests: './tests/*.js',
   output: './output',
   helpers: {
     REST: {
@@ -24,8 +24,11 @@ exports.config = {
     }
   },
   include: {
-    I: './steps_file.js'
+    I: './steps_file.js',
+    D: require('./resources/data/' + process.env.env + '/massa.json'), // Para usar massa de dados de testes
+    U: require('./helpers/utils.js') // Para usar funcionalidades dentro de utils
   },
+
   bootstrap: null,
   name: 'codeceptjs-api',
   translation: 'pt-BR',
@@ -40,7 +43,7 @@ exports.config = {
     },
     reporterOptions: {
       'codeceptjs-cli-reporter': {
-        stdout: '-',
+        stdout: './output/consolecli.log',
         options: {
           verbose: true,
           steps: true,
@@ -62,7 +65,7 @@ exports.config = {
       outputDir: "./output"
     },
     screenshotOnFail: {
-      enabled: true
+      enabled: false
     },
     pauseOnFail: {
       enabled: false
@@ -74,10 +77,13 @@ exports.config = {
       enabled: true
     },
     stepByStepReport: {
-      enabled: true,
-      screenshotsForAllureReport: true,
+      enabled: false
+    },
+    stepByStepReport: {
+      enabled: false,
+      screenshotsForAllureReport: false,
       output: "./output",
-      deleteSuccessful: true
+      deleteSuccessful: false
     }
    
   }
