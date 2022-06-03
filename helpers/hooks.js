@@ -1,6 +1,5 @@
 const Helper = require('@codeceptjs/helper');
 const { container, ecorder, event, output } = require('codeceptjs');
-const { I } = inject();
 const execSync = require('child_process').execSync;
 const utf8 = { encoding: 'utf-8' };
 
@@ -10,11 +9,11 @@ class hooks extends Helper {
     console.log('User tester: ' + process.env.USERNAME),
       console.log('ENV: ' + process.env.env),
       console.log('Token: ' + process.env.TOKEN)
-    try {
-      // execSync('rm output/* -f', utf8);
-    } catch (e) {
-      console.log(e)
-    }
+    // try {
+    //   execSync('rm output/* -f', utf8);
+    // } catch (e) {
+    //   console.log(e)
+    // }
 
   } // before all tests
   _before() {

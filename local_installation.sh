@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Install codecept
-npx create-codeceptjs .
+npm i codeceptjs
 # Install asserts and Resources
 npm i codeceptjs-chai
 # Install .env file reader
@@ -22,4 +22,4 @@ npm i datetime-helper
 npm audit fix
 
 # Run a single scenario to check if everything works:
-# npx codeceptjs run --features --steps --grep '@testAll'
+# npx codeceptjs run

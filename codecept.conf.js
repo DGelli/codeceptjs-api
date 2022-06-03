@@ -26,7 +26,8 @@ exports.config = {
   include: {
     I: './steps_file.js',
     D: require('./resources/data/' + process.env.env + '/massa.json'), // Para usar massa de dados de testes
-    U: require('./helpers/utils.js') // Para usar funcionalidades dentro de utils
+    U: require('./helpers/utils.js'), // Para usar funcionalidades dentro de utils
+    faker: require('@faker-js/faker/locale/pt_BR') // Para gerar massa fake
   },
 
   bootstrap: null,
