@@ -8,7 +8,8 @@ const getVar = () => {
 exports.getVar = getVar;
 
 
-Scenario('Teste metodo GET', async ({ I, D, U }) => {
+Scenario('Teste metodo GET', async ({ I, D, U, conf }) => {
+    console.log(conf)
     // to use class Utils
     console.log(U.getNumber())
     // to use massa de dados

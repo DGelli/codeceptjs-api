@@ -9,6 +9,8 @@ exports.getVar = getVar;
 
 Scenario('Teste metodo POST ', async ({ I }) => {
     let v = require('./1MockAPITestGet').getVar()
+    I.haveRequestHeaders({})
+    I.amBearerAuthenticated()
     response = await I.sendPostRequest('/Teste/' + v.id + '/contatos', {
         "fone": "55 11 99999-4444",
         "fone2": "55 11 99999-5555"
