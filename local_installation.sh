@@ -6,8 +6,8 @@ npm i codeceptjs
 npm i codeceptjs-chai
 # Install .env file reader
 npm install dotenv --save
-# Install multi report
-npm i mocha-multi
+# Install xml report
+npm i mocha-junit-reporter
 # Install Allure Report
 npm install allure-commandline --save-dev
 

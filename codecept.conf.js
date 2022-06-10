@@ -19,12 +19,12 @@ exports.config = {
     Hooks: {
       require: './helpers/hooks.js'
     },
-    ChaiWrapper : {
+    ChaiWrapper: {
       require: "codeceptjs-chai"
     }
   },
   include: {
-    I: './steps_file.js', 
+    I: './steps_file.js',
     conf: './resources/conf/' + process.env.env + '.json', // Para usar os dados do arquivo de configuracao
     D: './resources/data/' + process.env.env + '/massa.json', // Para usar massa de dados de testes
     U: './helpers/utils.js', // Para usar funcionalidades dentro de utils
@@ -36,28 +36,9 @@ exports.config = {
   translation: 'pt-BR',
 
   mocha: {
-    mochawesome: {
-      stdout: './output/console.log',
-      options: {
-        reportDir: './output',
-        reportFilename: 'report'
-      }
-    },
     reporterOptions: {
-      'codeceptjs-cli-reporter': {
-        stdout: './output/consolecli.log',
-        options: {
-          verbose: true,
-          steps: true,
-        }
-      },
-      'mocha-junit-reporter': {
-        stdout: './output/console.log',
-        options: {
-          mochaFile: './output/result.xml',
-          attachments: true //add screenshot for a failed test
-        }
-      }
+      mochaFile: './output/xml/result.xml',
+      // attachments: true, //add screenshot for a failed tes
     }
   },
 
@@ -87,6 +68,6 @@ exports.config = {
       output: "./output",
       deleteSuccessful: false
     }
-   
+
   }
 }

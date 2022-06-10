@@ -30,7 +30,7 @@
         ```
     - run with report.xml:
         ```
-        npx codeceptjs run --reporter mocha-multi
+        npx codeceptjs run --reporter mocha-junit-reporter
         ```
     - run with cucumber tags:
         ```
