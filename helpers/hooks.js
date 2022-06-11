@@ -2,7 +2,7 @@ const Helper = require('@codeceptjs/helper');
 const { container, ecorder, event, output } = require('codeceptjs');
 const execSync = require('child_process').execSync;
 const utf8 = { encoding: 'utf-8' };
-
+var validacao = '';
 class hooks extends Helper {
 
   _init() {
@@ -25,31 +25,37 @@ class hooks extends Helper {
     console.log('-------------------------------Start---------------------------------')
   } // before a test
   _after() {
-    var request = container.helpers().JSONResponse.response.config;
-    var response = container.helpers().JSONResponse.response.data;
-    var allure = codeceptjs.container.plugins('allure');
-    allure.createStep('Evidencia do Request', () => {
-      allure.addAttachment(
-        'Request params',
-        JSON.stringify(request, null, 2),
-        'application/json'
-      );
-    });
-    allure.createStep('Evidencia do Response', () => {
-      allure.addAttachment(
-        'Response body',
-        JSON.stringify(response, null, 2),
-        'application/json'
-      );
-    });
-    console.log('***Request***')
-    console.log(request)
-    console.log('***Response***')
-    console.log(response)
     console.log('--------------------------------End----------------------------------')
   } // after a test
   _beforeStep() { } // before each step
-  _afterStep() { } // after each step
+  _afterStep() {
+    try {
+      var url = container.helpers().JSONResponse.response.config.baseURL
+      var method = container.helpers().JSONResponse.response.config.method
+      if (validacao != container.helpers().JSONResponse.response) {
+        var request = container.helpers().JSONResponse.response.config;
+        var response = container.helpers().JSONResponse.response.data;
+        var allure = codeceptjs.container.plugins('allure');
+
+        allure.addAttachment(
+          'Request params',
+          JSON.stringify(request, null, 2),
+          'application/json'
+        );
+        allure.addAttachment(
+          'Response body',
+          JSON.stringify(response, null, 2),
+          'application/json'
+        );
+        console.log(`[${method}] ${url}`)
+        console.log('***Request***')
+        console.log(request)
+        console.log('***Response***')
+        console.log(response)
+      } else { }
+      validacao = container.helpers().JSONResponse.response
+    } catch (error) { }
+  } // after each step
   _beforeSuite() { } // before each suite
   _afterSuite() { } // after each suite
   _passed() { } // after a test passed
