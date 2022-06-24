@@ -29,6 +29,7 @@ exports.config = {
     D: './resources/data/' + process.env.env + '/massa.json', // Para usar massa de dados de testes
     U: './helpers/utils.js', // Para usar funcionalidades dentro de utils
     faker: '@faker-js/faker/locale/pt_BR', // Para gerar massa fake
+    evidenceError: './helpers/evidence'
   },
 
   bootstrap: null,
@@ -38,7 +39,6 @@ exports.config = {
   mocha: {
     reporterOptions: {
       mochaFile: './output/xml/result.xml',
-      // attachments: true, //add screenshot for a failed tes
     }
   },
 
@@ -47,24 +47,8 @@ exports.config = {
       enabled: true,
       outputDir: "./output"
     },
-    screenshotOnFail: {
-      enabled: false
-    },
-    pauseOnFail: {
-      enabled: false
-    },
-    retryFailedStep: {
-      enabled: true
-    },
-    tryTo: {
-      enabled: true
-    },
-    stepByStepReport: {
-      enabled: false
-    },
     stepByStepReport: {
       enabled: false,
-      screenshotsForAllureReport: false,
       output: "./output",
       deleteSuccessful: false
     }

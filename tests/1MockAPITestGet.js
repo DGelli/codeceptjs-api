@@ -8,7 +8,7 @@ const getVar = () => {
 exports.getVar = getVar;
 
 
-Scenario('Teste metodo GET', async ({ I, D, U, conf }) => {
+Scenario('Teste metodo GET', async ({ I, D, U, conf, evidenceError }) => {
     console.log(conf)
     // to use class Utils
     console.log(U.getNumber())
@@ -16,8 +16,11 @@ Scenario('Teste metodo GET', async ({ I, D, U, conf }) => {
     id = D.user.id
     // realizar chamada
     response = await I.sendGetRequest('/Teste');
-    // Valida sucesso, faixa de 200 a 299
+    // Valida Status
+    I.assertEqual(response.status, 200)
+    I.seeResponseCodeIs(200);
     I.seeResponseCodeIsSuccessful();
+    
     // Tabalha os dados do response
     for (let obj of response.data) {
         console.log(obj.id)
@@ -26,6 +29,8 @@ Scenario('Teste metodo GET', async ({ I, D, U, conf }) => {
         id = obj.id
         if (obj.id === '1') break;
     }
+    
     // Validar schema
-    I.assertJsonSchema(response.data, require('../schemas/mokeGet-schema.json'));
+    I.assertJsonSchema(response.data, require('../schemas/mokeGet-schema.json'), evidenceError.getEvidence());
+    
 }).tag('@get');

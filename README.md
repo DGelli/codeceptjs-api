@@ -53,3 +53,19 @@
 ## Repairs if necessary
     npm update
     npm install npm@latest
+
+## Validações
+// matche code
+I.seeResponseCodeIs(200);
+
+// matches 200, 201, 202, ... 206
+I.seeResponseCodeIsSuccessful();
+
+// matches 300...308
+I.seeResponseCodeIsRedirection();
+
+// matches 400..451
+I.seeResponseCodeIsClientError();
+
+// matches 500-511
+I.seeResponseCodeIsServerError();
