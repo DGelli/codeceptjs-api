@@ -1,6 +1,6 @@
 const Helper = require('@codeceptjs/helper');
 const { ifError } = require('assert');
-const {container, ecorder, event, output } = require('codeceptjs');
+const { container, ecorder, event, output } = require('codeceptjs');
 const execSync = require('child_process').execSync;
 const utf8 = { encoding: 'utf-8' };
 var validacao = '';
@@ -8,9 +8,9 @@ var validacao = '';
 class hooks extends Helper {
   _init() {
     try {
-      execSync('rm -rf output', utf8);
+      execSync('rm -rf output/*', utf8);
     } catch (e) { }
-    
+
     var fs = require('fs');
     var util = require('util');
     var log_file = fs.createWriteStream('output/console.log', { flags: 'w' });
@@ -19,8 +19,8 @@ class hooks extends Helper {
       log_file.write(util.format(d) + '\n');
       log_stdout.write(util.format(d) + '\n');
     };
-  } // before all tests
-  
+  } // before all
+
   _before() {
     // console.log(container.support())
     console.log('-------------------------------Start---------------------------------')
@@ -62,8 +62,8 @@ class hooks extends Helper {
   _afterSuite() { } // after each suite
   _passed() { } // after a test passed
   _failed() {
-    
-   } // after a test failed
+
+  } // after a test failed
   _finishTest() { // after all tests
     //  execSync('allure serve output', utf8);
   }
