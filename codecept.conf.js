@@ -25,7 +25,7 @@ exports.config = {
     }
   },
   include: {
-    I: './steps_file.js',
+    I: './helpers/Actor.js',
     conf: './resources/conf/' + process.env.env + '.json', // Para usar os dados do arquivo de configuracao
     data: './resources/data/' + process.env.env + '/massa.json', // Para usar massa de dados de testes
     utils: './helpers/Utils.js', // Para usar funcionalidades dentro de utils
