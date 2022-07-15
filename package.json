@@ -3,22 +3,15 @@
     "version": "0.1.0",
     "private": true,
     "scripts": {
-        "codeceptjs": "codeceptjs run --steps",
-        "codeceptjs:headless": "HEADLESS=true codeceptjs run --steps",
-        "codeceptjs:ui": "codecept-ui --app",
-        "codeceptjs:demo": "codeceptjs run --steps -c node_modules/@codeceptjs/examples",
-        "codeceptjs:demo:headless": "HEADLESS=true codeceptjs run --steps -c node_modules/@codeceptjs/examples",
-        "codeceptjs:demo:ui": "codecept-ui --app  -c node_modules/@codeceptjs/examples",
-        "api": "ENV ENV='hml1' TOKEN='xyz123' npx codeceptjs run --reporter mocha-multi",
-        "tag": "ENV ENV='hml1' TOKEN='xyz123' npx codeceptjs run --reporter mocha-multi --grep"
+        "api": "ENV ENV='hml1' npx codeceptjs run --reporter mocha-multi",
+        "tag": "ENV ENV='hml1' npx codeceptjs run --reporter mocha-multi --grep"
     },
     "devDependencies": {
         "@codeceptjs/configure": "^0.8.0",
         "@codeceptjs/examples": "^1.2.1",
         "@codeceptjs/ui": "^0.4.6",
         "allure-commandline": "^2.17.2",
-        "codeceptjs": "^3.3.3",
-        "playwright": "^1.22.2"
+        "codeceptjs": "^3.3.3"
     },
     "dependencies": {
         "codeceptjs-chai": "^2.3.2",
@@ -26,7 +19,8 @@
         "cpf_cnpj": "^0.2.0",
         "datetime-helper": "^1.0.0",
         "dotenv": "^16.0.1",
-        "mocha-multi": "^1.1.6",
+        "mocha-junit-reporter": "^2.0.2",
+        "npm": "^8.14.0",
         "random-number": "^0.0.9"
     }
 }

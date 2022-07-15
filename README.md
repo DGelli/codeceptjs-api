@@ -7,26 +7,15 @@
     - `Visual Studio Code` (Last version) [download](https://code.visualstudio.com/download)
 - **Installing dependencies**
   
-    In a terminal, into the project folder directory, run the shell script `./local_installation.sh` to get installed CodeceptJS.
+    In a terminal, into the project folder directory, run command: `npm install`
 
-    - For MacOS and Linux:
-
-    ```bash
-    sh local_installation.sh
-    ```
-
-    - For Windows 10:
-
-    ```bash
-    ./local_installation.sh
-    ```
 
 ## Run tests using terminal
 
 - **Run tests**
     - single run:
         ```
-        npx codeceptjs run
+        npx codeceptjs run --verbose
         ```
     - run with report.xml:
         ```
@@ -34,11 +23,11 @@
         ```
     - run with cucumber tags:
         ```
-        npx codeceptjs run --features --steps --grep '@testAll'
+        npx codeceptjs run --grep '@testAll'
         ```
     - Run with environment variables:
         ```
-        ENV 'hml2' TOKEN='xyz123' npx codeceptjs run --features --steps --reporter mocha-multi
+        ENV 'hml2' npx codeceptjs run
         ```
     - run with shortcut, you can parameterize the shortcuts in the script of the `package.json` file (run only git bash):
         ```

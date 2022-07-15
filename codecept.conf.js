@@ -9,7 +9,8 @@ setHeadlessWhen(process.env.HEADLESS);
 setCommonPlugins();
 
 exports.config = {
-  tests: './tests/*.js',
+  name: 'codeceptjs-api',
+  translation: 'pt-BR',
   output: './output',
   helpers: {
     REST: {
@@ -17,7 +18,7 @@ exports.config = {
     },
     JSONResponse: {},
     Hooks: {
-      require: './helpers/hooks.js'
+      require: './helpers/Hooks.js'
     },
     ChaiWrapper: {
       require: "codeceptjs-chai"
@@ -26,15 +27,17 @@ exports.config = {
   include: {
     I: './steps_file.js',
     conf: './resources/conf/' + process.env.env + '.json', // Para usar os dados do arquivo de configuracao
-    D: './resources/data/' + process.env.env + '/massa.json', // Para usar massa de dados de testes
-    U: './helpers/utils.js', // Para usar funcionalidades dentro de utils
+    data: './resources/data/' + process.env.env + '/massa.json', // Para usar massa de dados de testes
+    utils: './helpers/Utils.js', // Para usar funcionalidades dentro de utils
     faker: '@faker-js/faker/locale/pt_BR', // Para gerar massa fake
-    evidenceError: './helpers/evidence'
+  },
+
+  gherkin: {
+    features: './tests/**/*.feature',
+    steps: './tests/**/*Steps.js'
   },
 
   bootstrap: null,
-  name: 'codeceptjs-api',
-  translation: 'pt-BR',
 
   mocha: {
     reporterOptions: {
